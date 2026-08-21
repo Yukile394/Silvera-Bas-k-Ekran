@@ -26,6 +26,7 @@ import com.silvera.basikekran.ui.components.AnimatedBackground
 import com.silvera.basikekran.ui.theme.*
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.AspectRatio as AspectRatioIcon
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
