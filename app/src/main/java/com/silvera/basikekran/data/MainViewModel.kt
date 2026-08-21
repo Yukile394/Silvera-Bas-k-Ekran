@@ -168,7 +168,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         prefsManager.saveSelectedGameId(gameId)
     }
 
-    fun selectRatio(ratio: AspectRatio) {
+    fun selectRatio(ratio: ScreenAspectRatio) {
         val current = _currentProfile.value
         val updated = current.copy(selectedRatio = ratio)
         _currentProfile.value = updated
@@ -181,7 +181,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val updated = current.copy(
             customWidth = width,
             customHeight = height,
-            selectedRatio = AspectRatio.OZEL
+            selectedRatio = ScreenAspectRatio.OZEL
         )
         _currentProfile.value = updated
         prefsManager.saveGameProfile(updated)
@@ -239,7 +239,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         try {
             // Kayıtlı basık ekran profili varsa oyun başlamadan önce uygula
             val profile = _currentProfile.value
-            if (profile.selectedRatio != AspectRatio.RATIO_16_9 || profile.customWidth != game.defaultWidth) {
+            if (profile.selectedRatio != ScreenAspectRatio.RATIO_16_9 || profile.customWidth != game.defaultWidth) {
                 applyBasikEkran(profile.customWidth, profile.customHeight)
             }
             launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
