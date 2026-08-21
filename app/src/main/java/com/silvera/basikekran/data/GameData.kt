@@ -6,10 +6,10 @@ data class Game(
     val packageNames: List<String>,
     val defaultWidth: Int = 1280,
     val defaultHeight: Int = 720,
-    val defaultRatio: AspectRatio = AspectRatio.RATIO_4_3
+    val defaultRatio: ScreenAspectRatio = ScreenAspectRatio.RATIO_4_3
 )
 
-enum class AspectRatio(val label: String, val description: String, val widthFactor: Float, val heightFactor: Float) {
+enum class ScreenAspectRatio(val label: String, val description: String, val widthFactor: Float, val heightFactor: Float) {
     RATIO_16_9("16:9", "Oran", 16f, 9f),
     RATIO_4_3("4:3", "Oran", 4f, 3f),
     RATIO_21_9("21:9", "Oran", 21f, 9f),
@@ -20,7 +20,7 @@ enum class AspectRatio(val label: String, val description: String, val widthFact
 
 data class GameProfile(
     val gameId: String,
-    val selectedRatio: AspectRatio,
+    val selectedRatio: ScreenAspectRatio,
     val customWidth: Int,
     val customHeight: Int
 )
@@ -33,7 +33,7 @@ object GameRepository {
             packageNames = listOf("com.standoff2.standoff2", "standoff.two"),
             defaultWidth = 1280,
             defaultHeight = 720,
-            defaultRatio = AspectRatio.RATIO_4_3
+            defaultRatio = ScreenAspectRatio.RATIO_4_3
         ),
         Game(
             id = "pubgmobile",
@@ -41,7 +41,7 @@ object GameRepository {
             packageNames = listOf("com.tencent.ig", "com.pubg.imobile", "com.rekoo.pubgm"),
             defaultWidth = 1920,
             defaultHeight = 1080,
-            defaultRatio = AspectRatio.RATIO_16_9
+            defaultRatio = ScreenAspectRatio.RATIO_16_9
         )
     )
 
