@@ -19,11 +19,11 @@ class PreferencesManager(context: Context) {
 
     fun loadGameProfile(gameId: String): GameProfile {
         val game = GameRepository.getById(gameId)
-        val ratioName = prefs.getString("${gameId}_ratio", game?.defaultRatio?.name ?: AspectRatio.RATIO_16_9.name)
+        val ratioName = prefs.getString("${gameId}_ratio", game?.defaultRatio?.name ?: ScreenAspectRatio.RATIO_16_9.name)
         val ratio = try {
-            AspectRatio.valueOf(ratioName ?: AspectRatio.RATIO_16_9.name)
+            ScreenAspectRatio.valueOf(ratioName ?: ScreenAspectRatio.RATIO_16_9.name)
         } catch (e: IllegalArgumentException) {
-            AspectRatio.RATIO_16_9
+            ScreenAspectRatio.RATIO_16_9
         }
         val width = prefs.getInt("${gameId}_width", game?.defaultWidth ?: 1280)
         val height = prefs.getInt("${gameId}_height", game?.defaultHeight ?: 720)
